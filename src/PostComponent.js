@@ -12,7 +12,12 @@ PostComponent({
     avatar}) {
   return (
     <div className='postComponent'>
-        
+        11111
+        <br></br>
+        11111
+        <br></br>
+        11111
+        <br></br>
     </div>
   )
 }

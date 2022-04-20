@@ -1,8 +1,11 @@
 // import { Feed } from '@mui/icons-material';
-import Feed from './Feed';
+
 import './css/App.css';
-import Header from './Header';
-import BottomNavigationComponent from './BottomNavigation';
+import React from 'react';
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import Home from './Home';
+import Playground from './Playground';
+import DesktopWarning from './DesktopWarning';
 // import FabComponent from './FabComponent';
 
 
@@ -13,25 +16,23 @@ import BottomNavigationComponent from './BottomNavigation';
 function App() {
   //TODO: redirect non-mobile users to desktop version
   // Check if is mobile
-  // const isMobile = window.innerWidth < 768;
+  const isMobile = window.innerWidth < 768;
 
-  // if(!isMobile) {
-  //   //go to google.com
-  //   window.location.href = 'https://www.google.com';
-  // }
+  if(!isMobile && window.location.pathname === '/') {
+    //go to google.com
+    window.location.href = '/desktop';
+  }
 
   return (
-    <div className="app">
-      <div className='header-sticky'>
-        <Header />
-      </div>
-      <div className='Feed'>
-        <Feed />
-      </div>
-      <div className='BottomNav'>
-        <BottomNavigationComponent  />
-      </div>
-    </div>
+
+    <BrowserRouter>
+      <Routes>
+          <Route path="/" element={<Home/>} exact />
+          <Route path="/test" element={<Playground/>} />
+          <Route path="/desktop" element={<DesktopWarning/>} />
+      </Routes>
+    </BrowserRouter>
+
   );
 }
 

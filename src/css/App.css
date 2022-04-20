@@ -11,18 +11,3 @@ body{
 
 
 
-.header-sticky{
-  position: fixed;
-  top: 0;
-  width: 100%
-}
-
-.Feed{
-  height: 100%;
-}
-
-.BottomNav{
-  position: fixed;
-  bottom: 0;
-  width: 100%
-}
