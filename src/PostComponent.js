@@ -2,6 +2,12 @@ import React from 'react'
 import { Paper } from '@mui/material'
 import { Avatar } from '@mui/material'
 import './css/PostComponent.css'
+import './css/bulma.min.css'
+
+// const PostComponent = (props) => {
+
+//     return ;
+// }
 
 export default function 
 PostComponent({
@@ -12,19 +18,36 @@ PostComponent({
     likes,
     avatar}) {
   return (
-    <div className='postComponent'>
-        <div className='postComponent_avatar'>
-            <avatar src={avatar} />
-        </div>
-        <div className='postConponent_body'>
-            <div className='postComponent_header'>
-                <div className='postComponent_header_text'>
-                    <h3>
-                        0 
-                    </h3>
+    <Paper className="post-container">
+        <div className='postComponent'>
+            
+            <div className='postConponent_body'>
+                
+                <div className='postComponent_header'>
+                    <div className='postComponent_avatar'>
+                        {/* <Avatar src={avatar} /> */}
+                    </div>
+                    <div className='postComponent_header_text'>
+                        <h3>
+                            #{user_uid}
+                        </h3>
+                    </div>
+                    {/* <div className='postComponent_header_actions'>
+                        <button className='button is-light is-small is-rounded' >回复</button>        
+                    </div> */}
+                    
                 </div>
+                <div className='postComponent_header_description'>
+                        <p>
+                            {content}
+                        </p>
+                    </div>
+                <img src={image}
+                alt=''/>
             </div>
+            {/* <div className='postComponent_footer'>
+            </div> */}
         </div>
-    </div>
+    </Paper>
   )
 }

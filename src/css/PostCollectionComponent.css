@@ -1,0 +1,12 @@
+.postCollectionComponent{
+    overflow-x: scroll;
+    max-width: 1000px;
+}
+
+.postCollectionFlexbox{
+    display: flex;
+    align-items: flex-start;
+}
+.postComponent_header_actions{
+    padding-right: 20px;
+}

@@ -16,12 +16,12 @@ import DesktopWarning from './DesktopWarning';
 function App() {
   //TODO: redirect non-mobile users to desktop version
   // Check if is mobile
-  const isMobile = window.innerWidth < 768;
+  // const isMobile = window.innerWidth < 768;
 
-  if(!isMobile && window.location.pathname === '/') {
-    //go to google.com
-    window.location.href = '/desktop';
-  }
+  // if(!isMobile && window.location.pathname === '/') {
+  //   //go to google.com
+  //   window.location.href = '/desktop';
+  // }
 
   return (
 
