@@ -6,6 +6,8 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import Home from './Home';
 import Playground from './Playground';
 import DesktopWarning from './DesktopWarning';
+import cloudbase from "@cloudbase/js-sdk";
+
 // import FabComponent from './FabComponent';
 
 
@@ -22,6 +24,10 @@ function App() {
   //   //go to google.com
   //   window.location.href = '/desktop';
   // }
+
+  const cbApp = cloudbase.init({
+    env: "hello-cloudbase-5gt2hqaddac2d0bc"
+  });
 
   return (
 
