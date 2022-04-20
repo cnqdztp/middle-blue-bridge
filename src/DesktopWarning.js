@@ -9,7 +9,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const theme = createTheme();
 
@@ -46,7 +45,7 @@ export default function DesktopWarning() {
               spacing={2}
               justifyContent="center"
             >
-                <img src={require('./image/logo.png')} alt="qrcode" />
+                <img src={require('./image/QRCode.png')} alt="qrcode" />
             </Stack>
           </Container>
         </Box>
