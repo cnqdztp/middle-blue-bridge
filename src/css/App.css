@@ -1,9 +1,28 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
 @font-face {
   font-family: 'future';
-  src: url(GlowSansSC-Normal-Medium.otf);
+  src: url('../fonts/GlowSansSC-Normal-Medium.otf');
 }
 
 body{
+  
   font-family: "future","PingFang SC", "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Helvetica, Arial, Verdana, sans-serif;
+}
+
+
+
+.header-sticky{
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+.Feed{
+  height: 100%;
+}
+
+.BottomNav{
+  position: fixed;
+  bottom: 0;
+  width: 100%
 }

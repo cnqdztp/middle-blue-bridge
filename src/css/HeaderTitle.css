@@ -1,0 +1,9 @@
+.header_logo{
+    align-self: center;
+    max-width: 40px;
+    
+}
+.header_title_text{
+    margin-left: 20px;
+    font-size: large;
+}
