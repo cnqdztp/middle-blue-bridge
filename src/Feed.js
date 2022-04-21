@@ -1,7 +1,5 @@
 import React from 'react'
 import { Pagination } from '@mui/material'
-import PostComponent from './PostComponent'
-
 import './css/Feed.css'
 import PostCollectionComponent from './PostCollectionComponent'
 
@@ -13,7 +11,7 @@ export default function Feed({pageCount}) {
         {/* <PostCollectionComponent /> */}
       </div>
         
-        {/* <Pagination count={pageCount}/> */}
+        {/* <Pagination count={pageCount} color="primary" variant="outlined" /> */}
     </div>
   )
 }

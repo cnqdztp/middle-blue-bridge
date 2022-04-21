@@ -1,5 +1,6 @@
 .postCollectionComponent{
     overflow-x: scroll;
+    scrollbar-width: 0px;
     max-width: 1000px;
 }
 
