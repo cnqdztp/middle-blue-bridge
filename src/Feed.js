@@ -16,7 +16,6 @@ export default class Feed extends React.Component{
             pageSize: 10,
             loading: false,
             error: null,
-            feed: []
         }
     }
 
@@ -32,15 +31,9 @@ export default class Feed extends React.Component{
         const query = postsCollection.orderBy('timestamp', 'desc').skip((page - 1) * pageSize).limit(pageSize);
         const result = await query.get();
         const total = await postsCollection.count();
-        const feedContent = this.state.posts.map(item => {
-          return(
-            <Playground key={item._id}/>
-          // <PostCollectionComponent data={item} key={item._id}/>
-          )}
-          )
+
         this.setState({
             posts: result.data,
-            feed: feedContent,
             total,
             loading: false
         })
@@ -53,7 +46,7 @@ export default class Feed extends React.Component{
       let feedContent = this.state.posts.map(item => {
         return(
           // <Playground key={item._id}/>
-        <PostCollectionComponent data={item} key={item._id}/>
+        <PostCollectionComponent data={item} key={item._id} post_id={item._id}/>
         )}
         ) 
       return (
@@ -61,6 +54,11 @@ export default class Feed extends React.Component{
           <div className='feed-content'>
             {/* debugContent */}
             {feedContent}
+
+          </div>
+          <div className='feed-pagination'>
+            {/* <Pagination variant="outlined" color="primary" className='feed-pagination-nav'/> */}
+            
           </div>
         </div>
       );

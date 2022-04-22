@@ -2,7 +2,7 @@ import React from 'react'
 import './css/PostCollectionComponent.css'
 import PostComponent from './PostComponent'
 
-export default function PostCollectionComponent(data,key) {
+export default function PostCollectionComponent(data,key,post_id) {
   // console.log(data.data.content);
 
   const posts = data.data.content.map((data,index) => {
