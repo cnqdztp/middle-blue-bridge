@@ -18,7 +18,7 @@ export default function Home() {
         <Header />
       </div>
       <div className='feed'>
-        <Feed pageCount={1}/>
+        <Feed/>
       </div>
       <div className='BottomNav'>
         <BottomNavigationComponent  />

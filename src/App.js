@@ -41,6 +41,7 @@ function App() {
       <Routes>
           <Route path="/" element={<Home/>} exact />
           <Route path="/test" element={<Playground/>} />
+          <Route path="/compose" element={<Playground/>} />
           <Route path="/desktop" element={<DesktopWarning/>} />
           <Route path="/login" element={<Login/>} />
           <Route path="*" element={<Playground/>} />
