@@ -40,9 +40,9 @@ export default class Feed extends React.Component{
           )
         this.setState({
             posts: result.data,
+            feed: feedContent,
             total,
-            loading: false,
-            feed: feedContent
+            loading: false
         })
         
         // console.log(result.data);
