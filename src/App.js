@@ -21,20 +21,26 @@ import Compose from './Compose';
 function App() {
   //TODO: redirect non-mobile users to desktop version
   // Check if is mobile
-  // const isMobile = window.innerWidth < 768;
+  const isMobile = window.innerWidth < 1025;
 
-  // if(!isMobile && window.location.pathname === '/') {
-  //   //go to google.com
-  //   window.location.href = '/desktop';
+  //  function isMobileCheck() {
+  //   if(isMobile) {
+  //     return true;
+  //   }else{
+  //     return false;
+  //   }
   // }
-  const cbApp = cloudbase.init({
-    env: "hello-cloudbase-5gt2hqaddac2d0bc"
-  });
-  const auth = cbApp.auth();
+  // //check if cookie "use_pc_anyway" is true
+  // const usePcAnyway = document.cookie.indexOf("use_pc_anyway=true") > -1;
+  
+  // if(!isMobile && !usePcAnyway){
+  //   if(window.location.pathname !== '/desktop'){
+  //     window.location.href = '/desktop';
+  //   }
+  // }
 
-  if (!auth.hasLoginState() && window.location.pathname !== '/login') {
-    window.location.href = '/login';
-  }
+  
+  
 
   return (
 

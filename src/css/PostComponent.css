@@ -19,6 +19,17 @@
     /* border-bottom: 1px solid #e6e6e6; */
 }
 
+.timestamp{
+    font-size: 12px;
+    color: #828282;
+}
+.postComponent_header_text{
+    display: flex;
+    flex-direction: row;
+    align-items:baseline; 
+    gap: 5px;
+}
+
 .postComponent_header{
     display: flex;
     align-items: center;
@@ -36,6 +47,6 @@
 
 /* .postConponent_f */
 .postComponent_header_description{
-    margin-left: 12px;
-    margin-bottom: 8px;
+    margin: 0px 12px 8px ;
+
 }

@@ -12,9 +12,10 @@ export default function PostCollectionComponent(data) {
     var img = data.img;
     var txt = data.text;
     var user_uid = data.post_user_uid;
+    var timestamp = data.timestamp;
     // console.log(data._id)
-    // console.log(img);
-    return <PostComponent key={index} image={img} content={txt} user_uid={user_uid} />
+    // console.log(timestamp);
+    return <PostComponent key={index} image={img} content={txt} user_uid={user_uid} timestamp={timestamp} />
   })
 
   

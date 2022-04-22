@@ -6,6 +6,7 @@ import cloudbase from "@cloudbase/js-sdk";
 import Box from '@mui/material/Box';
 import Playground from './Playground';
 import CircularProgress from '@mui/material/CircularProgress';
+import DesktopWidget from './DesktopWidget'
 
 
 export default class Feed extends React.Component{
@@ -65,8 +66,12 @@ export default class Feed extends React.Component{
         ) 
       return (
         <div className='feed-wrapper'>
+
           <div className='feed-content'>
+            
             {/* debugContent */}
+            <DesktopWidget  />
+          
             {feedContent}
             <div className='Pagination-nav'>
             <Pagination className='Pagination' count={this.state.totalPages} siblingCount={0} boundaryCount={2}/>

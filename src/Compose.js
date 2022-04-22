@@ -12,6 +12,16 @@ import { Input } from '@mui/material';
 
 export default function Compose(type) {
 
+    const cbApp = cloudbase.init({
+        env: "hello-cloudbase-5gt2hqaddac2d0bc"
+      });
+      const auth = cbApp.auth();
+    
+      if (!auth.hasLoginState() && window.location.pathname !== '/login') {
+        window.location.href = '/login';
+      }
+
+
     const [emojiPickerOn, setemojiPickerOn] = useState(false);
     function emojiPickerToggle(params) {
         
