@@ -48,6 +48,7 @@ export default class Feed extends React.Component{
       return (
         <div className='feed-wrapper'>
           <div className='feed-content'>
+            debugContent
             {this.state.feed}
           </div>
         </div>
