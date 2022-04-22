@@ -50,11 +50,25 @@ export default class Feed extends React.Component{
     }
 
     render() {
+<<<<<<< Updated upstream
       return (
         <div className='feed-wrapper'>
           <div className='feed-content'>
             debugContent
             {this.state.feed}
+=======
+      let feedContent = this.state.posts.map(item => {
+        return(
+          // <Playground key={item._id}/>
+        <PostCollectionComponent data={item} key={item._id}/>
+        )}
+        ) 
+      return (
+        <div className='feed-wrapper'>
+          <div className='feed-content'>
+            {/* debugContent */}
+            {feedContent}
+>>>>>>> Stashed changes
           </div>
         </div>
       );
