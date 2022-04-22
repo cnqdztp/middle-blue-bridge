@@ -15,8 +15,7 @@ export default class Feed extends React.Component{
             total: 0,
             pageSize: 10,
             loading: false,
-            error: null,
-            feed: []
+            error: null
         }
     }
 
@@ -32,15 +31,8 @@ export default class Feed extends React.Component{
         const query = postsCollection.orderBy('timestamp', 'desc').skip((page - 1) * pageSize).limit(pageSize);
         const result = await query.get();
         const total = await postsCollection.count();
-        const feedContent = this.state.posts.map(item => {
-          return(
-            <Playground key={item._id}/>
-          // <PostCollectionComponent data={item} key={item._id}/>
-          )}
-          )
         this.setState({
             posts: result.data,
-            feed: [...feedContent],
             total,
             loading: false
         })
@@ -50,11 +42,17 @@ export default class Feed extends React.Component{
     }
 
     render() {
+      let feedContent = this.state.posts.map(item => {
+        return(
+          <Playground key={item._id}/>
+        // <PostCollectionComponent data={item} key={item._id}/>
+        )}
+        ) 
       return (
         <div className='feed-wrapper'>
           <div className='feed-content'>
             debugContent
-            {this.state.feed}
+            {feedContent}
           </div>
         </div>
       );
