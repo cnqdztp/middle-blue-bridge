@@ -20,6 +20,9 @@ PostComponent({
     image,
     likes,
     avatar}) {
+        var user_uid_minified = user_uid.slice(0,5);
+        // console.log(timestamp)
+        var time = new Date(timestamp);
   return (
     <Paper className="post-container">
         <div className='postComponent'>
@@ -31,9 +34,17 @@ PostComponent({
                         {/* <Avatar src={avatar} /> */}
                     </div>
                     <div className='postComponent_header_text'>
-                        <h3>
-                            #{user_uid}
-                        </h3>
+                        <div className='userID'>
+                            <h3>
+                                #{user_uid_minified}
+                            </h3>
+                        </div>
+                        <div className='timestamp'>
+                            <h3>
+                                {time.toLocaleString()}
+                            </h3>
+                        </div>
+                        
                     </div>
                     {/* <div className='postComponent_header_actions'>
                         <button className='button is-light is-small is-rounded' >回复</button>        

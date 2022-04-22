@@ -10,6 +10,9 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { Alert } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+// import App from './App';
+import './css/Login.css'
+import DesktopWidget from './DesktopWidget';
 
 function Copyright(props) {
   return (
@@ -21,17 +24,21 @@ function Copyright(props) {
   );
 }
 
+const cbApp = cloudbase.init({
+  env: "hello-cloudbase-5gt2hqaddac2d0bc"
+});
+const auth = cbApp.auth();
 
 
-const theme = createTheme();
+// const theme = createTheme();
 
 export default function Login() {
+
+
+  // console.log();
   const handleSubmit = (event) => {
     event.preventDefault();
-    const cbApp = cloudbase.init({
-        env: "hello-cloudbase-5gt2hqaddac2d0bc"
-      });
-      const auth = cbApp.auth();
+    
 
       async function login(){
         await auth.anonymousAuthProvider().signIn();
@@ -45,8 +52,8 @@ export default function Login() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+
+      <div>
         <CssBaseline />
         <Box
           sx={{
@@ -64,23 +71,47 @@ export default function Login() {
           </Typography>
           <br></br>
           <Alert severity="info">账号不与您的任何现实身份关联</Alert>
-
+          <br></br>
+          <DesktopWidget />
 
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              获取账号
-            </Button>
+            <LoginButton />
 
 
           </Box>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
-      </Container>
-    </ThemeProvider>
+      </div>
   );
+}
+
+function LoginButton() {
+
+  // var isLoggined = false;
+  // console.log(auth.getLoginState());
+
+  // console.log(isLoggined);
+  if(false){
+    return (
+      <Button
+        type="submit"
+        fullWidth
+        variant="contained"
+        sx={{ mt: 3, mb: 2 }}
+      >
+        更换身份
+      </Button>
+      );
+  }else{
+    return (
+      <Button
+        type="submit"
+        fullWidth
+        variant="contained"
+        sx={{ mt: 3, mb: 2 }}
+      >
+        获取账号
+      </Button>
+      );
+  }
 }

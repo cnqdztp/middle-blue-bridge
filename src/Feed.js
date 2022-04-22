@@ -4,7 +4,8 @@ import './css/Feed.css'
 import PostCollectionComponent from './PostCollectionComponent'
 import cloudbase from "@cloudbase/js-sdk";
 import Playground from './Playground';
-import Picker from 'emoji-picker-react';
+import CircularProgress from '@mui/material/CircularProgress';
+import DesktopWidget from './DesktopWidget'
 
 
 export default class Feed extends React.Component{
@@ -52,8 +53,12 @@ export default class Feed extends React.Component{
         ) 
       return (
         <div className='feed-wrapper'>
+
           <div className='feed-content'>
-            debugContent
+            
+            {/* debugContent */}
+            <DesktopWidget  />
+          
             {feedContent}
           </div>
         </div>
