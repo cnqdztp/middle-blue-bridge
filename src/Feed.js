@@ -3,6 +3,7 @@ import { Pagination } from '@mui/material'
 import './css/Feed.css'
 import PostCollectionComponent from './PostCollectionComponent'
 import cloudbase from "@cloudbase/js-sdk";
+import Playground from './Playground';
 
 export default class Feed extends React.Component{
   
@@ -31,15 +32,17 @@ export default class Feed extends React.Component{
         const query = postsCollection.orderBy('timestamp', 'desc').skip((page - 1) * pageSize).limit(pageSize);
         const result = await query.get();
         const total = await postsCollection.count();
-        const feed = this.state.posts.map(item => {
+        const feedContent = this.state.posts.map(item => {
           return(
-          <PostCollectionComponent data={item} key={item._id}/>)}
+            <Playground key={item._id}/>
+          // <PostCollectionComponent data={item} key={item._id}/>
+          )}
           )
         this.setState({
             posts: result.data,
             total,
             loading: false,
-            feed: feed
+            feed: feedContent
         })
         
         // console.log(result.data);
