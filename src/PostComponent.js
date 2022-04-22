@@ -3,6 +3,9 @@ import { Paper } from '@mui/material'
 import { Avatar } from '@mui/material'
 import './css/PostComponent.css'
 import './css/bulma.min.css'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
+
 
 // const PostComponent = (props) => {
 
@@ -42,8 +45,10 @@ PostComponent({
                             {content}
                         </p>
                     </div>
-                <img src={image}
-                alt=''/>
+                    <Zoom>
+                        <img src={image}
+                        alt='' className='postComponent_img'/>
+                    </Zoom>
             </div>
             {/* <div className='postComponent_footer'>
             </div> */}

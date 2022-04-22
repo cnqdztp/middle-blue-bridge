@@ -5,6 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import cloudbase from "@cloudbase/js-sdk";
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import LockOpenIcon from '@mui/icons-material/LockOpen';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { Alert } from '@mui/material';
@@ -56,7 +57,7 @@ export default function Login() {
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
+            <LockOpenIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             开始游览西街天桥
