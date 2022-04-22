@@ -25,7 +25,8 @@
     justify-content: space-start;
     width: 100%;
     padding-top: 10px;
-    gap: 10px;
+    /* gap: 10px; */
+    margin-left:12px ;
 
 }
 
@@ -35,5 +36,5 @@
 
 /* .postConponent_f */
 .postComponent_header_description{
-    margin-left: 1.5rem;
+    margin-left: 12px;
 }

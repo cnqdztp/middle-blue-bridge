@@ -1,4 +1,4 @@
-import React,{ useState, useEffect } from 'react'
+import React from 'react'
 import { Pagination } from '@mui/material'
 import './css/Feed.css'
 import PostCollectionComponent from './PostCollectionComponent'

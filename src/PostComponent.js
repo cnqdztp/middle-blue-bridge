@@ -1,6 +1,6 @@
 import React from 'react'
 import { Paper } from '@mui/material'
-import { Avatar } from '@mui/material'
+// import { Avatar } from '@mui/material'
 import './css/PostComponent.css'
 import './css/bulma.min.css'
 import Zoom from 'react-medium-image-zoom'
@@ -20,6 +20,7 @@ PostComponent({
     image,
     likes,
     avatar}) {
+        var user_uid_minified = user_uid.slice(0,5);
   return (
     <Paper className="post-container">
         <div className='postComponent'>
@@ -32,7 +33,7 @@ PostComponent({
                     </div>
                     <div className='postComponent_header_text'>
                         <h3>
-                            #{user_uid}
+                            #{user_uid_minified}
                         </h3>
                     </div>
                     {/* <div className='postComponent_header_actions'>
