@@ -4,6 +4,8 @@ import './css/Feed.css'
 import PostCollectionComponent from './PostCollectionComponent'
 import cloudbase from "@cloudbase/js-sdk";
 import Playground from './Playground';
+import Picker from 'emoji-picker-react';
+
 
 export default class Feed extends React.Component{
   
@@ -44,8 +46,8 @@ export default class Feed extends React.Component{
     render() {
       let feedContent = this.state.posts.map(item => {
         return(
-          <Playground key={item._id}/>
-        // <PostCollectionComponent data={item} key={item._id}/>
+          // <Playground key={item._id}/>
+        <PostCollectionComponent data={item} key={item._id} />
         )}
         ) 
       return (

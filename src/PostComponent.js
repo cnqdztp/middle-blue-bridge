@@ -2,7 +2,7 @@ import React from 'react'
 import { Paper } from '@mui/material'
 import { Avatar } from '@mui/material'
 import './css/PostComponent.css'
-import './css/bulma.min.css'
+// import './css/bulma.min.css'
 import Zoom from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
 
