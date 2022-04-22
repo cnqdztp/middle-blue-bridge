@@ -9,7 +9,7 @@ export default function PostCollectionComponent(data,key) {
     var img = data.img;
     var txt = data.text;
     var user_uid = data.post_user_uid;
-    console.log(img);
+    // console.log(img);
     return <PostComponent key={index} image={img} content={txt} user_uid={user_uid} />
   })
 

@@ -5,6 +5,7 @@ import PostCollectionComponent from './PostCollectionComponent'
 import cloudbase from "@cloudbase/js-sdk";
 
 export default class Feed extends React.Component{
+  
     constructor(props){
         super(props);
         this.state = {
@@ -30,14 +31,15 @@ export default class Feed extends React.Component{
         const query = postsCollection.orderBy('timestamp', 'desc').skip((page - 1) * pageSize).limit(pageSize);
         const result = await query.get();
         const total = await postsCollection.count();
+        const feed = this.state.posts.map(item => {
+          return(
+          <PostCollectionComponent data={item} key={item._id}/>)}
+          )
         this.setState({
             posts: result.data,
             total,
             loading: false,
-            feed: this.state.posts.map(item => {
-              return(
-              <PostCollectionComponent data={item} key={item._id}/>)}
-              )
+            feed: feed
         })
         
         // console.log(result.data);
