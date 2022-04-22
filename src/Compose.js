@@ -22,7 +22,7 @@ export default function Compose(type) {
         <div className='Header'>
             <div className='backButton'>
                 <IconButton color="primary" component="span" onClick={()=>{
-                    //  window.history.back(-1)
+                     window.history.back(-1)
                 }} >
                     <ArrowBackIcon/>
                 </IconButton>
