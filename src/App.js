@@ -8,6 +8,7 @@ import Playground from './Playground';
 import DesktopWarning from './DesktopWarning';
 import Login from './Login';
 import cloudbase from "@cloudbase/js-sdk";
+import Compose from './Compose';
 
 
 // import FabComponent from './FabComponent';
@@ -41,7 +42,7 @@ function App() {
       <Routes>
           <Route path="/" element={<Home/>} exact />
           <Route path="/test" element={<Playground/>} />
-          <Route path="/compose" element={<Playground/>} />
+          <Route path="/compose" element={<Compose/>} />
           <Route path="/desktop" element={<DesktopWarning/>} />
           <Route path="/login" element={<Login/>} />
           <Route path="*" element={<Playground/>} />

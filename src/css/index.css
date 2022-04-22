@@ -16,3 +16,12 @@ html,body{
     -o-background-size: cover;
     background-size: cover;
 } */
+
+input,button,select,textarea{outline:none}
+textarea{resize:none}
+
+body{
+  
+    font-family: "future","PingFang SC", "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Helvetica, Arial, Verdana, sans-serif !important;
+  }
+  

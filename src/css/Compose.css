@@ -1,0 +1,62 @@
+
+.body_container{
+    width: 85%;
+    margin-left: 7.5%;
+
+}
+
+.main_input{
+    border-color:rgba(255, 255, 255, 0);
+    /* width: 85%; */
+    font-size: 16px;
+    /* margin-left: 7.5%; */
+    font-family: "future","PingFang SC", "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Helvetica, Arial, Verdana, sans-serif !important;
+
+}
+
+
+
+
+.Header{
+    background-color: #fff;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Title{
+    margin: auto;
+}
+
+.Compose{
+    display: flex;
+    /* vertical */
+    flex-direction: column;
+    align-content: center;
+
+}
+
+.cutLine{
+    /* width: 85%; */
+    height: 1px;
+    background-color: #f3f3f3;
+    /* margin: 10px 7.5%; */
+}
+.accessory_container{
+    display: flex;
+    /* horizontal */
+    flex-direction: row;
+    align-content: center;
+    
+}
+
+#contained-button-file{
+    display: none;
+}
+
+.send_button{
+    border-radius: 25px !important;
+}

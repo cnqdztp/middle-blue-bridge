@@ -20,7 +20,7 @@ export default class Feed extends React.Component{
             totalPages: 0,
             pageSize: 10,
             loading: false,
-            error: null,
+            error: null
         }
     }
 
