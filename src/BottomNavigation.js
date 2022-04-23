@@ -12,7 +12,7 @@ export default function BottomNavigationComponent() {
         <BottomNavigation className='nav_bar'>
         <BottomNavigationAction label="看贴纸" icon={<HomeIcon  />} component={Link} to={'/'} />
         <BottomNavigationAction label="找贴纸" icon={<SearchIcon />} component={Link} to={'/test'} />
-        <BottomNavigationAction label="写贴纸" icon={<CreateIcon />} />
+        <BottomNavigationAction label="写贴纸" icon={<CreateIcon />} component={Link} to={'/compose'} />
       </BottomNavigation>
     </div>
   )
