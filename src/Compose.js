@@ -10,7 +10,17 @@ import Picker from 'emoji-picker-react';
 import { Input } from '@mui/material';
 
 
-export default function Compose(type) {
+export default function Compose() {
+
+    //get url parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const reply_id = urlParams.get('reply_id');
+    var is_reply = false;
+    if(reply_id!==null){
+        is_reply = true;
+    }
+    // console.log(reply_id);
+
 
     const AuthInfo =cloudbase.auth().hasLoginState().user.uid;
         // console.log(AuthInfo);
@@ -43,26 +53,42 @@ export default function Compose(type) {
             return;
         }
         setIsSubmit(true);
-        cloudbase.callFunction({
-            name: "Post_paper",
-            data: {
-                "action_type": "NEW",
-                "user_uid": AuthInfo,
-                // "reply_post_id": "1cf827d0626242f9015cb228413f67c8",
-                "text": text
-            }
-          }).then((res) => {
-            window.location.href = '/';
-          })
-          .catch(console.error);;
+        if(!is_reply){
+            cloudbase.callFunction({
+                name: "Post_paper",
+                data: {
+                    "action_type": "NEW",
+                    "user_uid": AuthInfo,
+                    // "reply_post_id": "1cf827d0626242f9015cb228413f67c8",
+                    "text": text
+                }
+            }).then((res) => {
+                window.location.href = '/';
+            })
+            .catch(console.error);;
+        }
+        else {
+            cloudbase.callFunction({
+                name: "Post_paper",
+                data: {
+                    "action_type": "REPLY",
+                    "user_uid": AuthInfo,
+                    "reply_post_id": reply_id,
+                    "text": text
+                }
+            }).then((res) => {
+                window.location.href = '/';
+            })
+            .catch(console.error);;
+        }
     }
     
-    function Title(type) {
-        if (type === 'NEW') {
+    function Title() {
+        if (!is_reply) {
             return <div className='Title'>
                 <span>新分享</span>
             </div>
-        }else if(type === 'REPLY') {
+        }else if(reply_id) {
             return <div className='Title'>
                 <span>回复分享</span>
             </div>
@@ -86,7 +112,7 @@ export default function Compose(type) {
                 </IconButton>
             </div>
             
-            <Title type={type} className="Title" />
+            <Title className="Title" />
             <Button variant="contained" endIcon={<SendIcon />} size="small" className='send_button' onClick={()=>{onComposeSubmit()}}>
                 发送
             </Button>
