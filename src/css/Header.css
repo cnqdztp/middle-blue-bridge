@@ -13,6 +13,9 @@
     margin-right: 10px;
     flex: 0.7;
 }
+.icon_button{
+    padding: 0 !important;
+}
 
 /* .header:before{
     content: "";

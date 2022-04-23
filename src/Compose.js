@@ -9,7 +9,13 @@ import EmojiEmotionsOutlinedIcon from '@mui/icons-material/EmojiEmotionsOutlined
 import Picker from 'emoji-picker-react';
 import { Input } from '@mui/material';
 
-const AuthInfo =cloudbase.auth().hasLoginState().user.uid;
+
+const AuthInfo =cloudbase.auth().hasLoginState();
+var user_uid = 0;
+if(AuthInfo!==null){
+    user_uid = AuthInfo.user.uid;;
+}
+
 
 export default function Compose() {
 
@@ -58,7 +64,7 @@ export default function Compose() {
                 name: "Post_paper",
                 data: {
                     "action_type": "NEW",
-                    "user_uid": AuthInfo,
+                    "user_uid": user_uid,
                     // "reply_post_id": "1cf827d0626242f9015cb228413f67c8",
                     "text": text
                 }
@@ -72,7 +78,7 @@ export default function Compose() {
                 name: "Post_paper",
                 data: {
                     "action_type": "REPLY",
-                    "user_uid": AuthInfo,
+                    "user_uid": user_uid,
                     "reply_post_id": reply_id,
                     "text": text
                 }

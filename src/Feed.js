@@ -21,6 +21,7 @@ export default class Feed extends React.Component{
             totalPages: 0,
             pageSize: 10,
             loading: false,
+            isRefresh : props.isRefresh,
             error: null
         }
     }
