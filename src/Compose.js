@@ -34,7 +34,10 @@ export default function Compose(type) {
 
     function onComposeSubmit(params) {
         // const cbApp = cloudbase;
-        
+        if(text === ''){
+            return;
+        }
+
         cloudbase.callFunction({
             name: "Post_paper",
             data: {
