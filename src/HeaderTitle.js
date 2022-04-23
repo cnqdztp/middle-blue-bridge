@@ -3,7 +3,7 @@ import './css/HeaderTitle.css'
 // import LogoImg from './image/logo.png'
 
 export default function HeaderTitle() {
-  const title = '西街天桥（回复功能未上线）'
+  const title = '西街天桥'
 
   return (
       <div className="header-title">
