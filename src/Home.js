@@ -17,14 +17,17 @@ export default function Home() {
     window.location.href = '/login';
   }
 
+  
+
   return (   
     
     <div className='home'>
         <div className='header-sticky'>
-        <Header />
+        <Header  />
+        {/* onClick={this.setState({loading: true})} */}
       </div>
       <div className='feed'>
-        <Feed pageCount={1}/>
+        <Feed />
       </div>
       <div className='BottomNav'>
         <BottomNavigationComponent  />
