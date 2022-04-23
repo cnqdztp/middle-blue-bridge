@@ -27,8 +27,9 @@ export default function Compose(type) {
       const [text, setText] = useState('');
     
       function handleChange(event) {
-          console.log(event.target.value);
-        setText(event.target.value);
+        if(event.target.value.length < 140){
+            setText(event.target.value);
+        }
     }
 
 
