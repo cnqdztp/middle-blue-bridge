@@ -63,7 +63,7 @@ export default function Compose(type) {
             </div>
         }else{
             return <div className='Title'>
-                <span>分享新鲜事</span>
+                <span>分享新鲜事<small>(图片功能未上线)</small></span>
             </div>
         }
         
