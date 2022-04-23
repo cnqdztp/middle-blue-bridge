@@ -9,6 +9,7 @@ import EmojiEmotionsOutlinedIcon from '@mui/icons-material/EmojiEmotionsOutlined
 import Picker from 'emoji-picker-react';
 import { Input } from '@mui/material';
 
+const AuthInfo =cloudbase.auth().hasLoginState().user.uid;
 
 export default function Compose() {
 
@@ -22,7 +23,6 @@ export default function Compose() {
     // console.log(reply_id);
 
 
-    const AuthInfo =cloudbase.auth().hasLoginState().user.uid;
         // console.log(AuthInfo);
 
     // const cbApp = cloudbase.init({
