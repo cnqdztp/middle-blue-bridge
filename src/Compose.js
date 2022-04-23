@@ -25,6 +25,7 @@ export default function Compose(type) {
     //   }
 
       const [text, setText] = useState('');
+      const [isSubmit, setIsSubmit] = useState(false);
     
       function handleChange(event) {
         if(event.target.value.length < 140){
@@ -35,10 +36,13 @@ export default function Compose(type) {
 
     function onComposeSubmit(params) {
         // const cbApp = cloudbase;
+        if(isSubmit){
+            return;
+        }
         if(text === ''){
             return;
         }
-
+        setIsSubmit(true);
         cloudbase.callFunction({
             name: "Post_paper",
             data: {

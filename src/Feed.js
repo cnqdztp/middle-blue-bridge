@@ -43,11 +43,17 @@ export default class Feed extends React.Component{
             total: total.total,
             totalPages : Math.ceil(total.total / pageSize),
             loading: false
-        })
+        });
         
         // console.log(this.state.totalPages);
         
     }
+
+    handleChange = async (event, value) => {
+      await this.setState({page: value});
+      this.getPosts();
+    }
+    
 
     render() {
       if(this.state.loading){
@@ -74,7 +80,7 @@ export default class Feed extends React.Component{
           
             {feedContent}
             <div className='Pagination-nav'>
-            <Pagination className='Pagination' count={this.state.totalPages} siblingCount={0} boundaryCount={2}/>
+            <Pagination className='Pagination' count={this.state.totalPages} page={this.state.page} siblingCount={0} boundaryCount={2} onChange={this.handleChange}/>
             </div>
           </div>
         </div>
