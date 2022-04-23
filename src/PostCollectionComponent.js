@@ -25,8 +25,8 @@ export default function PostCollectionComponent(data) {
         <div className='postCollectionFlexbox'>
             {posts}
             <div className='postComponent_header_actions'>
-            <Button variant="contained" color="secondary" onClick={() => { Reply(post_id); }}>
-              回复
+            <Button variant="contained" color="secondary" disabled onClick={() => { Reply(post_id); }}>
+              <small>回复</small>
             </Button>      
             </div>
         </div>

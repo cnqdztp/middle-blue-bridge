@@ -34,7 +34,7 @@ export default class Feed extends React.Component{
         const {page, pageSize} = this.state;
         const db = cloudbase.database();
         const postsCollection = db.collection('database');
-        const query = postsCollection.orderBy('timestamp', 'asc').skip((page - 1) * pageSize).limit(pageSize);
+        const query = postsCollection.orderBy('lastest_timestamp', 'desc').skip((page - 1) * pageSize).limit(pageSize);
         const result = await query.get();
         const total = await postsCollection.count();
         

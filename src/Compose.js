@@ -12,21 +12,61 @@ import { Input } from '@mui/material';
 
 export default function Compose(type) {
 
-    const cbApp = cloudbase.init({
-        env: "hello-cloudbase-5gt2hqaddac2d0bc"
-      });
-      const auth = cbApp.auth();
+    const AuthInfo =cloudbase.auth().hasLoginState().user.uid;
+        // console.log(AuthInfo);
+
+    // const cbApp = cloudbase.init({
+    //     env: "hello-cloudbase-5gt2hqaddac2d0bc"
+    //   });
+    //   const auth = cbApp.auth();
     
-      if (!auth.hasLoginState() && window.location.pathname !== '/login') {
-        window.location.href = '/login';
-      }
+    //   if (!auth.hasLoginState() && window.location.pathname !== '/login') {
+    //     window.location.href = '/login';
+    //   }
+
+      const [text, setText] = useState('');
+    
+      function handleChange(event) {
+          console.log(event.target.value);
+        setText(event.target.value);
+    }
 
 
-    const [emojiPickerOn, setemojiPickerOn] = useState(false);
-    function emojiPickerToggle(params) {
+    function onComposeSubmit(params) {
+        // const cbApp = cloudbase;
+        
+        cloudbase.callFunction({
+            name: "Post_paper",
+            data: {
+                "action_type": "NEW",
+                "user_uid": AuthInfo,
+                // "reply_post_id": "1cf827d0626242f9015cb228413f67c8",
+                "text": text
+            }
+          }).then((res) => {
+            window.location.href = '/';
+          })
+          .catch(console.error);;
+    }
+    
+    function Title(type) {
+        if (type === 'NEW') {
+            return <div className='Title'>
+                <span>新分享</span>
+            </div>
+        }else if(type === 'REPLY') {
+            return <div className='Title'>
+                <span>回复分享</span>
+            </div>
+        }else{
+            return <div className='Title'>
+                <span>分享新鲜事</span>
+            </div>
+        }
         
     }
     
+
   return (
     <div className='Compose'>
         <div className='Header'>
@@ -39,13 +79,13 @@ export default function Compose(type) {
             </div>
             
             <Title type={type} className="Title" />
-            <Button variant="contained" endIcon={<SendIcon />} size="small" className='send_button'>
+            <Button variant="contained" endIcon={<SendIcon />} size="small" className='send_button' onClick={()=>{onComposeSubmit()}}>
                 发送
             </Button>
         </div>
         <div className='body_container'>
             <div className='input_container'>
-                <TextareaAutosize placeholder="有什么想分享？" className='main_input'  minRows={3} autoFocus />
+                <TextareaAutosize placeholder="有什么想分享？" className='main_input'  minRows={3} autoFocus value={text} onChange={handleChange}/>
                 {/* <input type="text" className='main_input' placeholder="输入内容" /> */}
             </div>
             <div className='cutLine'>
@@ -65,33 +105,5 @@ export default function Compose(type) {
   )
 }
 
-function onComposeSubmit(params) {
-    const cbApp = cloudbase;
-    const AuthInfo =cloudbase.auth().getCurrenUser();
-    console.log(AuthInfo);
-    cloudbase.callFunction({
-        name: "Post_paper",
-        data: {}
-      }).then((res) => {
-        console.log(res);
-      })
-      .catch(console.error);;
-}
 
-function Title(type) {
-    if (type === 'NEW') {
-        return <div className='Title'>
-            <span>新分享</span>
-        </div>
-    }else if(type === 'REPLY') {
-        return <div className='Title'>
-            <span>回复分享</span>
-        </div>
-    }else{
-        return <div className='Title'>
-            <span>分享新鲜事</span>
-        </div>
-    }
-    
-}
 
