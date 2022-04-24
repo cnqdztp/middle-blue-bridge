@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import cloudbase from "@cloudbase/js-sdk";
 import './css/Compose.css'
-import { Button, IconButton, TextareaAutosize } from '@mui/material';
+import { Alert, Button, CircularProgress, IconButton, Snackbar, TextareaAutosize } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import SendIcon from '@mui/icons-material/Send';
 import AddPhotoAlternateOutlinedIcon from '@mui/icons-material/AddPhotoAlternateOutlined';
@@ -15,6 +15,9 @@ var user_uid = 0;
 if(AuthInfo!==null){
     user_uid = AuthInfo.user.uid;;
 }
+
+const MIN_CHARACTER_COUNT = 5;
+const MAX_CHARACTER_COUNT = 280;
 
 
 export default function Compose() {
@@ -42,12 +45,34 @@ export default function Compose() {
 
       const [text, setText] = useState('');
       const [isSubmit, setIsSubmit] = useState(false);
+      const [snackbar, setSnackbar] = React.useState({
+          open: false,
+          message: '',
+          variant: 'warning'}
+          );
+
+
+      function showSnackbar(severity, message) {
+        setSnackbar({
+            open: true,
+            message: message,
+            variant: severity}
+            );
+      }
     
       function handleChange(event) {
-        if(event.target.value.length < 140){
-            setText(event.target.value);
-        }
+        
+        setText(event.target.value);
+        
     }
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+    
+        setSnackbar({open: false, message: snackbar.message, variant: snackbar.variant});
+      };
 
 
     function onComposeSubmit(params) {
@@ -55,9 +80,14 @@ export default function Compose() {
         if(isSubmit){
             return;
         }
-        if(text === ''){
+        if(text.length<MIN_CHARACTER_COUNT){ 
+            showSnackbar('warning', '字数过少');
+            return;
+        }else if(text.length >=MAX_CHARACTER_COUNT){
+            showSnackbar('warning', '字数过多');
             return;
         }
+
         setIsSubmit(true);
         if(!is_reply){
             cloudbase.callFunction({
@@ -69,9 +99,10 @@ export default function Compose() {
                     "text": text
                 }
             }).then((res) => {
+                console.log(res);
                 window.location.href = '/';
             })
-            .catch(console.error);;
+            .catch(console.error);
         }
         else {
             cloudbase.callFunction({
@@ -83,6 +114,7 @@ export default function Compose() {
                     "text": text
                 }
             }).then((res) => {
+                console.log(res);
                 window.location.href = '/';
             })
             .catch(console.error);;
@@ -133,14 +165,23 @@ export default function Compose() {
             <div className='accessory_container'>
                 <div className='add_photo'>
                 <label htmlFor="contained-button-file">
-                    <Input  accept="image/*" id="contained-button-file" multiple type="file" />
-                        <IconButton color="primary" component="span" accept="image/*" id="icon-button-file" type="file">
+                    {/* <Input  accept="image/*" id="contained-button-file" multiple type="file" /> */}
+                        <IconButton color="primary" disabled component="span" accept="image/*" id="icon-button-file" type="file">
                             <AddPhotoAlternateOutlinedIcon/>
                         </IconButton>
+                        
                 </label>
+                </div>
+                <div className='character_counter'>
+                    <span>{text.length}/{MAX_CHARACTER_COUNT}</span>
                 </div>
             </div>
         </div>
+        <Snackbar open={snackbar.open} autoHideDuration={3000} onClose={handleClose}>
+        <Alert  severity={snackbar.variant}  sx={{ width: '100%' } } onClose={handleClose}>
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
     </div>
   )
 }

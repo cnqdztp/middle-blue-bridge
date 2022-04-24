@@ -5,6 +5,7 @@ import './css/PostComponent.css'
 // import './css/bulma.min.css'
 import Zoom from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
+import DeleteButton from './DeleteButton'
 
 
 // const PostComponent = (props) => {
@@ -19,7 +20,8 @@ PostComponent({
     content,
     image,
     likes,
-    avatar}) {
+    avatar,
+    moderation}) {
         var user_uid_minified = user_uid.slice(0,5);
         // console.log(timestamp)
         var time = new Date(timestamp);
@@ -30,9 +32,9 @@ PostComponent({
             <div className='postConponent_body'>
                 
                 <div className='postComponent_header'>
-                    <div className='postComponent_avatar'>
-                        {/* <Avatar src={avatar} /> */}
-                    </div>
+                    {/* <div className='postComponent_avatar'>
+                        <Avatar src={avatar} />
+                    </div> */}
                     <div className='postComponent_header_text'>
                         <div className='userID'>
                             <h3>
@@ -44,6 +46,9 @@ PostComponent({
                                 {time.toLocaleString()}
                             </h3>
                         </div>
+                        {/* <div className='moderation_button'>
+                            <DeleteButton />
+                        </div> */}
                         
                     </div>
                     {/* <div className='postComponent_header_actions'>

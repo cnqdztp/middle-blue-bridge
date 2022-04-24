@@ -49,7 +49,8 @@
     display: flex;
     /* horizontal */
     flex-direction: row;
-    align-content: center;
+    align-content:center;
+    align-items: center;
     
 }
 
@@ -59,4 +60,8 @@
 
 .send_button{
     border-radius: 25px !important;
+}
+
+.character_counter{
+    margin-left: auto;
 }

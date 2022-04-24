@@ -24,9 +24,17 @@ export default function PostCollectionComponent(data) {
     var txt = data.text;
     var user_uid = data.post_user_uid;
     var timestamp = data.timestamp;
+
+    //get url parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    // console.log(urlParams);
+    const isMod = urlParams.get('mod');
+    // console.log(isMod);
+    
+
     // console.log(data._id)
     // console.log(timestamp);
-    return <PostComponent key={index} image={img} content={txt} user_uid={user_uid} timestamp={timestamp} />
+    return <PostComponent key={index} image={img} content={txt} user_uid={user_uid} timestamp={timestamp} moderation={isMod} />
   })
 
   
